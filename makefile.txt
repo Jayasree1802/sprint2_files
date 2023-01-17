@@ -1,0 +1,23 @@
+all: moviebooking
+
+moviebooking: customer_def.o member_def.o booking_def.o main.o
+        g++ customer_def.o member_def.o booking_def.o main.o -o moviebooking
+
+main.o: main.cpp
+        g++ -c header.h main.cpp
+
+customer_def.o: customer_def.cpp
+        g++ -c customer.h customer_def.cpp
+
+
+member_def.o:member_def.cpp
+        g++ -c member.h member_def.cpp
+
+
+booking_def.o: booking_def.cpp
+        g++ -c booking.h booking_def.cpp
+
+
+clean:
+        rm *.o
+        rm *.gch
